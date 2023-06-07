@@ -1,7 +1,8 @@
 # Apache-AGE-Coding-Test 
-## first Problem :
 
-# Calculator Program in C
+# first Problem :
+
+## Calculator Program in C
 
 This program demonstrates a simple calculator implemented in C. It supports basic arithmetic operations such as addition, subtraction, multiplication, and division. Additionally, it calculates the Fibonacci sequence up to a specified number.
 
@@ -30,7 +31,8 @@ The code consists of the following components:
 if you find any issues or have any suggestions, feel free to submit a pull request :)
 
 
-## Second Problem :
+# Second Problem :
+
 To implement the given piecewise recurrence relation F(n) = F(n-3) + F(n-2), where F(0) = 0, F(1) = 1, and F(2) = 2, there are three different approaches we can take:
 
 ## Recursion Approach (`fibonacciRecursive`)
