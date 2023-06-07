@@ -85,7 +85,7 @@ The standard Fibonacci problem can also be solved in o(1).
 
 Feel free to explore and use the provided code based on your specific needs and constraints.
 
-## ## Running the Code
+## Running the Code
 
 To compile and run the code, follow these steps:
 
