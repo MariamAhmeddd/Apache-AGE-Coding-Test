@@ -32,8 +32,53 @@ if you find any issues or have any suggestions, feel free to submit a pull reque
 
 ## Second Problem :
 To implement the given piecewise recurrence relation F(n) = F(n-3) + F(n-2), where F(0) = 0, F(1) = 1, and F(2) = 2, there are three different approaches we can take:
-- Recursive Approach:
 
-- Dynamic Programming (Top-down) Approach using Memoization:
+## Recursion Approach (`fibonacciRecursive`)
 
-- Dynamic Programming (Bottom-up) Approach using Tabulation:
+- Advantages:
+  - Simple and intuitive implementation.
+
+- Disadvantages:
+  - Inefficient for large `n` due to the exponential time complexity caused by redundant recursive calls.
+
+## Dynamic Programming Approach - Top-Down (Memoization) (`fibonacciMemo`)
+
+- Advantages:
+  - Significant improvement over the recursive approach by avoiding redundant calculations.
+  - Retains the simplicity of the recursive implementation.
+
+- Disadvantages:
+  - Requires additional memory to store the memoization array (`memo`).
+  - Slow, due to lot of recursive calls and return statements.
+ 
+ ## Dynamic Programming Approach - Bottom-Up (`fibonacciIterative`)
+
+- Advantages:
+  - Efficient and avoids the overhead of recursion.
+  - No risk of running into stack overflow issues for large `n`.
+  - Fast, as we directly access previous states from the table. 
+
+- Disadvantages:
+  - Requires additional memory to store the dynamic programming array (`dp`).
+
+## standard Fibonacci in O(1) (`fibonacci`)
+
+The standard fibonacci equation : f(n) = f(n - 1) + f(n - 2) and can be solved using any of the three approaches.
+The standard Fibonacci problem can also be solved in o(1).
+ 
+- Advantages:
+  - Provides a direct formula to estimate Fibonacci numbers without iteration or recursion in o(1).
+
+- Disadvantages:
+  - floating-point arithmetic can introduce errors for large (`n`).
+  - Not suitable for obtaining exact values but more commonly used for estimation or approximation.
+
+## Method Comparison
+
+- Time Complexity: The recursive approach has an exponential time complexity due to redundant recursive calls, making it inefficient for large values of (`n`). The memoization and iterative methods, on the other hand, have a time complexity of O(n) since they avoid duplicate calculations.
+
+- Memory Usage: The recursive approach requires minimal additional memory, but the memoization method requires an array (memo) to store previously calculated Fibonacci numbers. The iterative method also requires an array (dp) to store the dynamic programming values. 
+
+- Stack Overflow Risk: The recursive approach is prone to stack overflow issues when (`n`) is too large.
+
+Feel free to explore and use the provided code based on your specific needs and constraints.
