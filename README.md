@@ -84,3 +84,16 @@ The standard Fibonacci problem can also be solved in o(1).
 - Stack Overflow Risk: The recursive approach is prone to stack overflow issues when (`n`) is too large.
 
 Feel free to explore and use the provided code based on your specific needs and constraints.
+
+## ## Running the Code
+
+To compile and run the code, follow these steps:
+
+1. Ensure that you have a C compiler installed on your system (e.g., GCC).
+
+2. Save the code into a C source file (e.g., `fibonacci.c`, `calculator.c`).
+
+3. Open a terminal or command prompt and navigate to the directory where the source file is saved.
+
+4. Compile the code using the appropriate compiler command. For example, using GCC.
+
