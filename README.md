@@ -1,6 +1,6 @@
 # Apache-AGE-Coding-Test 
 
-# first Problem :
+# [first Problem](first_Pronlem.c):
 
 ## Calculator Program in C
 
@@ -31,7 +31,7 @@ The code consists of the following components:
 if you find any issues or have any suggestions, feel free to submit a pull request :)
 
 
-# Second Problem :
+# [Second Problem](second_problem.c) :
 
 To implement the given piecewise recurrence relation F(n) = F(n-3) + F(n-2), where F(0) = 0, F(1) = 1, and F(2) = 2, there are three different approaches we can take:
 
