@@ -4,110 +4,82 @@
 #include <math.h>
 #include <malloc.h>
 
-typedef enum TypeTag {
-    ADD,
-    SUB,
-    MUL,
-    DIV
-};
-typedef struct Node
-{
-    enum TypeTag type;
-} Node;
+//Method 1: Recursion Approach
+int fibonacciRecursive(int n) {
+    if (n == 0)
+        return 0;
+    else if (n == 1)
+        return 1;
+    else if (n == 2)
+        return 2;
+    else
+        return fibonacciRecursive(n - 3) + fibonacciRecursive(n - 2);
+}
 
-int fib(int n){
-    int *dp=malloc((n + 1) * sizeof(int));
-    //int dp[n+2];
+//Method 2: Dynamic Programming Approach (Top-Down(Memoization))
+int fibonacciMemo(int n, int* memo) {
+    if (n == 0)
+        return 0;
+    else if (n == 1)
+        return 1;
+    else if (n == 2)
+        return 2;
+    else if (memo[n] != -1)
+        return memo[n];
+    else {
+        memo[n] = fibonacciMemo(n - 3, memo) + fibonacciMemo(n - 2, memo);
+        return memo[n];
+    }
+}
+
+//Method 3: Dynamic Programming Approach (Bottom-Up)
+int fibonacciIterative(int n) {
+    if (n == 0)
+        return 0;
+    else if (n == 1)
+        return 1;
+    else if (n == 2)
+        return 2;
+
+    int dp[n + 1];
     dp[0] = 0;
     dp[1] = 1;
-    for(int i = 2; i <= n; i++)
-    {
-        dp[i] = dp[i - 1] + dp[i - 2];
-    }
-    int result = dp[n];
-    free(dp);
-    return result;
+    dp[2] = 2;
+
+    for (int i = 3; i <= n; i++)
+        dp[i] = dp[i - 3] + dp[i - 2];
+
+    return dp[n];
 }
 
-int addition(int a, int b) {
-    return a + b;
+/*
+ With the three methods we can solve the normal fibonacci problem, which is :
+ f(n) = f(n - 1) + f(n - 2).
+ elso we can solve the normal fibonacci problem in o(1) by this code :
+ */
+int fibonacci(int n) {
+    double x = (1 + sqrt(5)) / 2;
+    double y = (1 - sqrt(5)) / 2;
+    double fib = (pow(x, n) - pow(y, n)) / sqrt(5);
+    return (int)fib;
 }
-
-int subtraction(int a, int b) {
-    if(b == 0)
-    {
-
-        if(a < 0)
-        {
-            a = -1 * a;
-            // we will minus 1 from a, as our dp is zero based so the forth number is in index 3
-            // the example in the coding test :
-            //you want the forth number but from the negative side which is located in the third index from the negative side.
-            int x = fib(a - 1);
-            return a&1? (-1 * x) : x;
-        }
-        else
-        {
-            int x = fib(a - 1);
-            return x;
-        }
-    }
-    else
-    {
-        return b - a;
-    }
-}
-
-int multiplication(int a, int b) {
-    return a * b;
-}
-
-int division(int a, int b) {
-    return (b!=0) ? a / b : NULL;
-}
-
-int* (*makeFunc(enum TypeTag type))(int, int) {
-    switch (type) {
-        case ADD:
-            return &addition;
-        case SUB:
-            return &subtraction;
-        case MUL:
-            return &multiplication;
-        case DIV:
-            return &division;
-        default:
-            printf("Invalid type!\n");
-            return NULL;
-    }
-}
-
-void calc(int (*operation)(int, int)) {
-    if (operation) {
-        int result = operation;
-        printf("Result: %d\n", result);
-    } else {
-        printf("Invalid operation!\n");
-    }
-}
-
+/*
+ However, this formula involves floating-point arithmetic, and due to the imprecision of floating-point numbers, it can introduce errors for large values of n. Additionally, calculating powers and square roots can be computationally expensive.
+ It is more commonly used for estimating Fibonacci numbers or finding approximations rather than exact values.
+ */
 int main() {
 
-    Node *add = (*makeFunc(ADD))(10, 6);
-    Node *mul = (*makeFunc(MUL))(5, 4);
-    Node *sub = (*makeFunc(SUB))(mul, add);
-    Node *fibo = (*makeFunc(SUB))(sub, NULL);
-
-    calc(add);
-    calc(mul);
-    calc(sub);
-    calc(fibo);
-
-    //test cases to test division operation
-    Node *div = (*makeFunc(DIV))(6, 2);
-    Node *div2 = (*makeFunc(DIV))(6, 0);
-    calc(div);
-    calc(div2);
+    //initialize memo to be used in method 2: (memoization)
+    int n = 100000;
+    int memo[n+2];
+    for(int i = 0; i <= n; i++)
+    {
+        memo[i] = -1;
+    }
+    printf("Recursion %d \n",  fibonacciRecursive(6));
+    printf("Memoization %d \n",  fibonacciMemo(6,memo));
+    printf("Iterative %d \n",  fibonacciIterative(6));
+    printf("Normal Fibonacci in o(1) %d \n",  fibonacci(6));
 
     return 0;
 }
