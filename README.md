@@ -1,6 +1,6 @@
 # Apache-AGE-Coding-Test 
 
-# [first Problem](first_Pronlem.c):
+# [first Problem](https://github.com/MariamAhmeddd/Apache-AGE-Coding-Test/blob/first_problem/main.c):
 
 ## Calculator Program in C
 
@@ -31,7 +31,7 @@ The code consists of the following components:
 if you find any issues or have any suggestions, feel free to submit a pull request :)
 
 
-# [Second Problem](second_problem.c) :
+# [Second Problem](https://github.com/MariamAhmeddd/Apache-AGE-Coding-Test/blob/second_problem/main.c) :
 
 To implement the given piecewise recurrence relation F(n) = F(n-3) + F(n-2), where F(0) = 0, F(1) = 1, and F(2) = 2, there are three different approaches we can take:
 
@@ -91,9 +91,11 @@ To compile and run the code, follow these steps:
 
 1. Ensure that you have a C compiler installed on your system (e.g., GCC).
 
-2. Save the code into a C source file (e.g., `fibonacci.c`, `calculator.c`).
+2. Switch to the `first_problem` or `second_problem` branch 
 
-3. Open a terminal or command prompt and navigate to the directory where the source file is saved.
+3. Save the code into a C source file (e.g., `fibonacci.c`, `calculator.c`).
 
-4. Compile the code using the appropriate compiler command. For example, using GCC.
+4. Open a terminal or command prompt and navigate to the directory where the source file is saved.
+
+5. Compile the code using the appropriate compiler command. For example, using GCC.
 
